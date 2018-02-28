@@ -49,11 +49,10 @@ SocketIOClient::SocketIOClient() {
 
 bool SocketIOClient::connect(String thehostname, int theport) {
     thehostname.toCharArray(hostname, MAX_HOSTNAME_LEN);
-    Serial.println("Connection established");
     port = theport;
-    ECHO(F("Connect to host: "));
+    ECHO(F("[connect] Connect to host: "));
     ECHO(hostname);
-    ECHO(F("Connect to port: "));
+    ECHO(F("[connect] Connect to port: "));
     ECHO(port);
     if (handshake() && connectViaSocket()) {
         return true;
